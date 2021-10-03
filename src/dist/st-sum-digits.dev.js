@@ -1,4 +1,11 @@
-import { NotImplementedError } from '../extensions/index.js';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = getSumOfDigits;
+
+var _index = require("../extensions/index.js");
 
 /**
  * Given a number, replace this number with
@@ -12,33 +19,31 @@ import { NotImplementedError } from '../extensions/index.js';
  * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
  *
  */
-export default function getSumOfDigits(n) {
+function getSumOfDigits(n) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  
-  if(n > 9){
-    let arrayAllDigits = Array.from(n.toString());
+  if (n > 9) {
+    var arrayAllDigits = Array.from(n.toString());
     arrayAllDigits = arrayAllDigits.map(Number);
-    let result = 0;
-    let resultTemp = 0;
+    var result = 0;
+    var resultTemp = 0;
 
     do {
-      for(let i = 0; i < arrayAllDigits.length; i++){
+      for (var i = 0; i < arrayAllDigits.length; i++) {
         resultTemp = resultTemp + arrayAllDigits[i];
       }
-      if(resultTemp > 9){
+
+      if (resultTemp > 9) {
         arrayAllDigits = Array.from(resultTemp.toString());
         arrayAllDigits = arrayAllDigits.map(Number);
         resultTemp = 0;
-      }else{
+      } else {
         result = resultTemp;
       }
-      
-    }while(result == 0);
+    } while (result == 0);
 
     return result;
-    
-  }else{
+  } else {
     return n;
-  } 
+  }
 }
